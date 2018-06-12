@@ -41,12 +41,6 @@ $app->register(new Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider, [
 // Register ServiceController
 $app->register(new Silex\Provider\ServiceControllerServiceProvider());
 
-$app->register(new DDesrosiers\SilexAnnotations\AnnotationServiceProvider(), [
-    "annot.cache" => new ApcuCache(),
-    "annot.controllerDir" => __DIR__ . "/Controllers",
-    "annot.controllerNamespace" => "App\\Controllers\\",
-]);
-
 // Define UserController
 $app[UserController::class] = function ($app) {
     /** @var \Doctrine\ORM\EntityManagerInterface $entityManager */
@@ -58,9 +52,10 @@ $app[UserController::class] = function ($app) {
     return new UserController($userRepository, $request);
 };
 
-//// Add routes
+// Add routes
 $app->get("/api/user", UserController::class . ":fetchAllAction");
 
+// Display errors as response (for dev)
 $app->error(function (\Exception $e, Request $request, $code) {
     return $e;
 });

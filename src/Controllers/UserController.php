@@ -2,8 +2,6 @@
 namespace App\Controllers;
 
 use App\Repositories\UserRepository;
-use DDesrosiers\SilexAnnotations\Annotations as SLX;
-use Doctrine\Common\Persistence\ObjectRepository;
 use Symfony\Component\HttpFoundation\Request;
 
 class UserController
@@ -31,13 +29,11 @@ class UserController
     }
 
     /**
-     * @SLX\Route(
-     * @SLX\Request(method="GET", uri="/api/user")
-     * )
+     * @return array
      */
     public function fetchAllAction()
     {
-        $sortByColumn = $this->request->query->get('sort_by', 'user.uid');
+        $sortByColumn = $this->request->query->get('sort_by', 'user.id');
         return $this->userRepository->findAllSorted($sortByColumn);
     }
 }

@@ -3,8 +3,7 @@
         "silex/silex": "^2.0",
         "vlucas/phpdotenv": "^2.4",
         "doctrine/dbal": "~2.2",
-        "dflydev/doctrine-orm-service-provider": "^2.0",
-        "ddesrosiers/silex-annotation-provider": "^2.0"
+        "dflydev/doctrine-orm-service-provider": "^2.0"
     },
     "autoload": {
         "psr-4": {
