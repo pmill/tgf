@@ -1,4 +1,4 @@
-# Good Things Foundation - Senior Developer interview task
+# GTF
 
 In this file you have a vagrant file which installs a simple database of users and centres and configures an apache host 
 which you should be able to access at http://192.168.33.11. The basic scaffold of a website is included in the www 
@@ -20,3 +20,14 @@ In your interview we will ask you to do a 10 minute presentation on what you've 
 - how it works
 - the decisions you made
 - what you would do better and have to consider if this was a real world task
+
+# Installation
+
+```
+composer install
+vagrant up --provider=virtualbox --provision
+```
+
+Then the website should be visible at:
+
+http://192.168.33.11/
