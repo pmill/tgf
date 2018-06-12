@@ -1,0 +1,68 @@
+<div class="row mt-5">
+    <div class="col-sm-12 col-md-10 offset-md-1">
+        <h1 class="text-center">Centre Users</h1>
+
+        <div class="mt-5"
+             ng-if="vm.data.users.length > 0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th ng-click="vm.setSortByColumn('user.id')">
+                            ID
+                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.id'"></i>
+                        </th>
+                        <th ng-click="vm.setSortByColumn('user.username')">
+                            Username
+                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.username'"></i>
+                        </th>
+                        <th ng-click="vm.setSortByColumn('user.firstname')">
+                            First Name
+                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.firstname'"></i>
+                        </th>
+                        <th ng-click="vm.setSortByColumn('user.surname')">
+                            Surname
+                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.surname'"></i>
+                        </th>
+                        <th ng-click="vm.setSortByColumn('user.email')">
+                            Email
+                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.email'"></i>
+                        </th>
+                        <th ng-click="vm.setSortByColumn('centre.name')">
+                            Centre
+                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'centre.name'"></i>
+                        </th>
+                        <th class="text-right" ng-click="vm.setSortByColumn('user.createdTimestamp')">
+                            Created
+                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.createdTimestamp'"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody ng-class="{
+                        'text-muted': vm.state.loading
+                       }">
+                    <tr ng-repeat="user in vm.data.users">
+                        <td>#{{user.id}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.firstname}}</td>
+                        <td>{{user.surname}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.centre_name}}</td>
+                        <td class="text-right">{{user.created_at | date:'yyyy-MM-dd HH-mm-ss'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-5"
+             ng-if="!vm.state.loading && vm.data.users.length === 0">
+            <hr>
+
+            <h3 class="mb-4">There are no users!</h3>
+        </div>
+
+        <div class="text-center mt-5"
+             ng-if="vm.state.loading && vm.data.users.length === 0">
+            loading...
+        </div>
+    </div>
+</div>
