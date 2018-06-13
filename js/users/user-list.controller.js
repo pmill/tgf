@@ -8,6 +8,7 @@ function userListController($state, UserService) {
 
     vm.state = {
         sortByColumn: 'user.id',
+        sortDirection: 'asc',
         loading: true
     };
 
@@ -22,14 +23,24 @@ function userListController($state, UserService) {
     function loadUsers() {
         vm.state.loading = true;
 
-        UserService.list({sort_by: vm.state.sortByColumn}).then(function (users) {
+        let payload = {
+            sort_by: vm.state.sortByColumn,
+            sort_dir: vm.state.sortDirection
+        };
+
+        UserService.list(payload).then(function (users) {
             vm.data.users = users;
             vm.state.loading = false;
         });
     }
 
     function setSortByColumn(columnName) {
-        vm.state.sortByColumn = vm.state.sortByColumn === columnName ? 'user.id' : columnName;
+        if (vm.state.sortByColumn === columnName) {
+            vm.state.sortDirection = vm.state.sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            vm.state.sortByColumn = columnName;
+            vm.state.sortDirection = 'asc';
+        }
         loadUsers();
     }
 }

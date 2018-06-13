@@ -7,14 +7,15 @@ class UserRepository extends EntityRepository
 {
     /**
      * @param string $sortColumn
+     * @param string $sortByDirection
      *
-     * @return array
+     * @return mixed
      */
-    public function findAllSorted($sortColumn)
+    public function findAllSorted($sortColumn, $sortByDirection = 'asc')
     {
         return $this->createQueryBuilder('user')
             ->leftJoin('user.centre', 'centre')
-            ->orderBy($sortColumn, 'asc')
+            ->orderBy($sortColumn, $sortByDirection)
             ->getQuery()
             ->getResult();
     }

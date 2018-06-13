@@ -34,6 +34,7 @@ class UserController
     public function fetchAllAction()
     {
         $sortByColumn = $this->request->query->get('sort_by', 'user.id');
-        return $this->userRepository->findAllSorted($sortByColumn);
+        $sortByDirection = $this->request->query->get('sort_dir', 'asc');
+        return $this->userRepository->findAllSorted($sortByColumn, $sortByDirection);
     }
 }

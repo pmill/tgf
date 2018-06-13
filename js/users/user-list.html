@@ -9,31 +9,65 @@
                     <tr>
                         <th ng-click="vm.setSortByColumn('user.id')">
                             ID
-                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.id'"></i>
+                            <i class="fa"
+                               ng-class="{
+                                'fa-chevron-down': vm.state.sortDirection === 'asc',
+                                'fa-chevron-up': vm.state.sortDirection === 'desc'
+                               }"
+                               ng-if="vm.state.sortByColumn === 'user.id'"></i>
                         </th>
                         <th ng-click="vm.setSortByColumn('user.username')">
                             Username
-                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.username'"></i>
+                            <i class="fa 'fa-chevron-down'"
+                               ng-class="{
+                                'fa-chevron-down': vm.state.sortDirection === 'asc',
+                                'fa-chevron-up': vm.state.sortDirection === 'desc'
+                               }"
+                               ng-if="vm.state.sortByColumn === 'user.username'"></i>
                         </th>
                         <th ng-click="vm.setSortByColumn('user.firstname')">
                             First Name
-                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.firstname'"></i>
+                            <i class="fa 'fa-chevron-down'"
+                               ng-class="{
+                                'fa-chevron-down': vm.state.sortDirection === 'asc',
+                                'fa-chevron-up': vm.state.sortDirection === 'desc'
+                               }"
+                               ng-if="vm.state.sortByColumn === 'user.firstname'"></i>
                         </th>
                         <th ng-click="vm.setSortByColumn('user.surname')">
                             Surname
-                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.surname'"></i>
+                            <i class="fa 'fa-chevron-down'"
+                               ng-class="{
+                                'fa-chevron-down': vm.state.sortDirection === 'asc',
+                                'fa-chevron-up': vm.state.sortDirection === 'desc'
+                               }"
+                               ng-if="vm.state.sortByColumn === 'user.surname'"></i>
                         </th>
                         <th ng-click="vm.setSortByColumn('user.email')">
                             Email
-                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.email'"></i>
+                            <i class="fa 'fa-chevron-down'"ng-class="{
+                                'fa-chevron-down': vm.state.sortDirection === 'asc',
+                                'fa-chevron-up': vm.state.sortDirection === 'desc'
+                               }"
+                               ng-if="vm.state.sortByColumn === 'user.email'"></i>
                         </th>
                         <th ng-click="vm.setSortByColumn('centre.name')">
                             Centre
-                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'centre.name'"></i>
+                            <i class="fa 'fa-chevron-down'"
+                               ng-class="{
+                                'fa-chevron-down': vm.state.sortDirection === 'asc',
+                                'fa-chevron-up': vm.state.sortDirection === 'desc'
+                               }"
+                               ng-if="vm.state.sortByColumn === 'centre.name'"></i>
                         </th>
                         <th class="text-right" ng-click="vm.setSortByColumn('user.createdTimestamp')">
                             Created
-                            <i class="fa fa-chevron-down" ng-if="vm.state.sortByColumn === 'user.createdTimestamp'"></i>
+                            <i class="fa 'fa-chevron-down'"
+                               ng-class="{
+                                'fa-chevron-down': vm.state.sortDirection === 'asc',
+                                'fa-chevron-up': vm.state.sortDirection === 'desc'
+                               }"
+                               ng-if="vm.state.sortByColumn === 'user.createdTimestamp'"></i>
                         </th>
                     </tr>
                 </thead>
