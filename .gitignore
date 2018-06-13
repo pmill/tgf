@@ -1,6 +1,4 @@
 .idea
 .vagrant
-www/js
-www/css
 mix-manifest.json
 tmp
